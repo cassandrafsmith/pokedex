@@ -3,26 +3,24 @@ import Pokecard from './Pokecard.js';
 import './Pokedex.css';
 
 class Pokedex extends Component{
-    static defaultProps = {
-        Pokemon: [
-            {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
-            {id: 7, name: 'Squirtle', type: 'water', base_experience: 63},
-            {id: 11, name: 'Metapod', type: 'bug', base_experience: 72},
-            {id: 12, name: 'Butterfree', type: 'flying', base_experience: 178},
-            {id: 25, name: 'Pikachu', type: 'electric', base_experience: 112},
-            {id: 39, name: 'Jigglypuff', type: 'normal', base_experience: 95},
-            {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
-            {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
-          ]
-    } 
-
+    
     render() {
-        const winMessage = this.props.isWinner ? "This deck Won!" : "This deck Lost!";
+        const winMessage = this.props.isWinner ? "Winner!" : "Loser!";
+
+        //create <p> with the proper className for the winner and loser to use for styling
+        let winTitle;
+        if(this.props.isWinner){
+            winTitle =  <h1 className="Pokedex-winner">{winMessage}</h1>;
+        } else {
+            winTitle = <h1 className="Pokedex-loser">{winMessage}</h1>;
+        }
+
         return(
             <div className="Pokedex">
-               <h1 className="Pokedex-title">Pokedex!</h1>
-               <p>Total Experience: {this.props.Exp}</p>
-               <p>{winMessage}</p>
+               <div className="Pokedex-heading">                   
+                    {winTitle}
+                   <h4 className="Pokedex-exp">Total Experience: {this.props.Exp}</h4>                    
+               </div>
                <div className="Pokedex-cards">
                    {this.props.Pokemon.map((p) => (
                        <Pokecard id={p.id} name={p.name} type={p.type} base_experience={p.base_experience} />               

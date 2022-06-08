@@ -4,8 +4,26 @@
     flex-wrap: wrap;
 }
 
-.Pokedex-title {
-    color: seagreen;
+.Pokedex-heading{
     text-align: center;
+}
+
+.Pokedex-title {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 
+    
 
 }
+
+.Pokedex-exp{
+
+}
+
+.Pokedex-winner{
+    color: green;
+}
+
+.Pokedex-loser{
+    color: red;
+}
+
